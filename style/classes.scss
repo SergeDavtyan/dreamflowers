@@ -1,0 +1,347 @@
+@import "colors.scss";
+
+button {
+    user-select: none;
+    outline: none;
+}
+
+.preload {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: $white;
+    z-index: 100;
+    transition: all .5s;
+
+    .loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 0px solid transparent;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+
+        &:before, &:after {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: -17px;
+            border-radius: 50%;
+            border: 16px solid $orange;
+            width: inherit;
+            height: inherit;
+            opacity: 0;
+            animation: loader 2s linear infinite;
+        }
+
+        &:before {
+            animation-delay: .5s;
+        }
+
+        @keyframes loader {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.preload_finish {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.typing_animation {
+    animation: typing 8s steps(30) infinite,
+               blinkText .8s steps(30) infinite normal;;
+}
+
+@keyframes typing {
+
+    0% {
+        width: 0;
+    }
+
+    30% {
+        width: 390px;
+    }
+
+    80% {
+        width: 390px;
+    }
+
+    100% {
+        width: 0;
+    }
+
+}
+
+@keyframes blinkText {
+
+    from {
+        border-color: transparent;
+    }
+
+    to {
+        border-color: darken($gray, 15%);
+    }
+
+}
+
+.width {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 100%;
+    max-width: 130px;
+    height: 65px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    height: 77px;
+    align-items: center;
+
+    &__item {
+        display: block;
+        text-align: center;
+        line-height: 30px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+        background: $white;
+        color: $btnColor;
+        margin-right: 15px;
+        transition: all .3s;
+
+        &:hover {
+            box-shadow: 0 0 20px -5px $textColor;
+        }
+    }
+
+    &__item.active {
+        box-shadow: 0 0 20px -5px $textColor;
+    }
+
+    &__prev, &__next {
+        width: 40px;
+    }
+}
+
+.burger {
+    display: none;
+}
+
+.img_response {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+.category {
+    width: 100%;
+    max-width: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    &__item {
+        margin-bottom: 20px;
+        border-bottom: 1px solid gray;
+        padding-bottom: 5px;
+        padding-right: 50px;
+        cursor: pointer;
+        position: relative;
+
+        &:after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background: $orange;
+            bottom: -1px;
+            left: 0;
+            transition: all .3s;
+        }
+
+        &:hover:after {
+            width: 100%;
+        }
+    }
+
+    &__item.active {
+        position: relative;
+        color: $orange;
+
+        &:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: $orange;
+            bottom: -1px;
+            left: 0;
+        }
+    }
+
+}
+
+.line_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.line {
+    height: 30px;
+    width: 275px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.calendar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+
+        i {
+            font-size: 40px;
+        }
+    }
+
+    &__input {
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        height: 0;
+        width: 0;
+        border: none;
+    }
+
+    &__value {
+        height: 40px;
+        width: 105px;
+        text-align: center;
+        line-height: 40px;
+        font-size: 14px;
+    }
+}
+
+.clock, .state {
+    margin-left: 5px;
+    position: relative;
+
+    &__title {
+        text-align: center;
+        width: 140px;
+        height: 40px;
+        line-height: 40px;
+        cursor: pointer;
+    }
+
+    &__item {
+        text-align: center;
+        line-height: 43px;
+        margin-bottom: 2px;
+        cursor: pointer;
+
+        &:hover {
+            background: $gray;
+        }
+    }
+
+    &__input {
+        display: none;
+    }
+
+    &__wrapper {
+        position: absolute;
+        top: 45px;
+        left: 0;
+        width: 140px;
+        height: 0px;
+        background: $white;
+        z-index: 3;
+        border: 1px solid transparent;
+        overflow: hidden;
+        transition: all .3s;
+    }
+
+    &__wrapper_container {
+        position: absolute;
+        left: -7px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    &__container {
+        width: 140px;
+        height: 155px;
+    }
+
+}
+
+.clock__wrapper.active, .state__wrapper.active {
+    height: 170px;
+    border-color: black;
+}
+
+.fixed {
+    background: $white;
+    z-index: 4;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transition: all .3s;
+    box-shadow: 0 0 15px rgba(0,0,0, .2);
+}
+
+// data-aos="decore"
+// .decore {
+//     position: absolute;
+//     bottom: -100px;
+//     left: 50%;
+//     width: 150px;
+//     z-index: -1;
+//     transform: translateX(-50%);
+// }
+
+[data-aos="decore"] {
+    opacity: 0;
+}
+
+[data-aos="decore"].aos-animate {
+    opacity: 1;
+}

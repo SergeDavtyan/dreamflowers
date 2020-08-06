@@ -1,0 +1,556 @@
+@mixin devices {
+
+    @media only screen and (max-width: 1100px) {
+
+        .header {
+            &__middle_right {
+                justify-content: flex-end;
+
+                .burger {
+                    display: block;
+                    width: 35px;
+                    cursor: pointer;
+                    margin-left: 30px;
+
+                    &__item {
+                        width: 100%;
+                        height: 3px;
+                        border-radius: 2px;
+                        background: $orange;
+                        margin: 6px 0px;
+                        transition: all .5s;
+
+                        &:last-child {
+                            font-size: 9px;
+                            color: $orange;
+                            letter-spacing: 2px;
+                            background: transparent;
+                            margin-top: 0px;
+                        }
+                    }
+
+                    &__item:nth-of-type(1).burger_style {
+                        transform: rotate(45deg) translate(3px, 6px);
+                    }
+
+                    &__item:nth-of-type(2).burger_style {
+                        transform: rotate(-45deg) translate(0px,-3px);
+                    }
+
+                    &__item:nth-of-type(3).burger_style {
+                        opacity: 0;
+                    }
+                }
+
+                nav {
+                    position: absolute;
+                    top: 90px;
+                    left: 0;
+                    z-index: 3;
+                    width: 100%;
+                    background: $white;
+                    box-shadow: 0 0 15px rgba(0,0,0, .2);
+
+                    .menu {
+                        flex-direction: column;
+                        height: 0;
+                        overflow: hidden;
+                        transition: all .3s;
+
+                        &__item {
+                            margin-bottom: 10px;
+                            padding-right: 10px;
+
+                            &--other {
+                                &:before {
+                                    left: 130px;
+                                }
+                            }
+
+                            a {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    .menu_open {
+                        padding-top: 10px;
+                        height: 325px;
+                    }
+                }
+            }
+        }
+
+        main {
+
+            .special_offers {
+                &__img{
+                    width: 300px;
+                    height: 200px;
+                }
+            }
+        }
+
+    }
+
+    @media only screen and (max-width: 1024px) {
+
+        .header {
+
+            &__top {
+                flex-direction: column;
+            }
+
+            &__top_right {
+                width: 100%;
+                justify-content: space-between;
+
+                .phone {
+                    font-size: 14px;
+                }
+            }
+
+            .decore {
+                bottom: -160px;
+                width: 120px;
+            }
+        }
+
+        main {
+
+            .about_us {
+                &__img {
+                    width: 150px;
+                }
+
+                &__text {
+                    width: 675px;
+                    font-size: 14px;
+                }
+            }
+
+            .product {
+                
+            
+                &__items {
+                    width: 100%;
+                    max-width: 855px;
+                    margin: 50px auto auto;
+                }
+
+                &__item {
+                    margin: 0px auto 10px;
+                }
+
+                &__border {
+                    box-shadow: 0px 3px 11px -6px black;
+    
+                    .product__buttons {
+                        margin-top: 25px;
+                        height: 35px;
+                    }
+                }
+                
+            }
+
+            .special_offers {
+                margin-top: 80px;
+
+                &__container {
+                    width: 100%;
+                    max-width: 730px;
+                    margin: 50px auto auto;
+                }
+
+            }
+
+            .recommended, .special_offer, .wreath {
+                &__items {
+                    width: 100%;
+                    max-width: 855px;
+                }
+            }
+
+            .service {
+                &__item {
+                    width: 240px;
+                    height: 160px;
+                }
+
+                &__img {
+                    width: 80px;
+                    height: 80px;
+                    top: -40px;
+                }
+
+                &__title {
+                    font-size: 16px;
+                }
+
+                &__text {
+                    font-size: 9px;
+                }
+            }
+
+            .flowers, .gift, .offer {
+                &__container {
+                    flex-direction: column;
+                }
+
+                .category {
+                    max-width: inherit;
+                    justify-content: flex-start;
+
+                    &__list {
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+    
+                    &__item {
+                        padding-right: 0px;
+                        margin-right: 20px;
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+    @media only screen and (max-width: 992px) {
+        main {
+
+            .events {
+
+                &__item {
+                    flex-direction: column;
+
+                    &:nth-child(even) {
+                        flex-direction: column;
+                    }
+                }
+
+                &__content {
+                    padding: 20px 0px;
+                }
+
+                &__text {
+                    font-size: 14px;
+                }
+
+            }
+
+            .delivery {
+                &__citys {
+                    flex-wrap: wrap;
+                    width: 100%;
+                    max-width: 576px;
+                    margin: 0px auto;
+                }
+            }
+            
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+
+        .header {
+
+            .logo {
+                max-width: 80px;
+                height: 60px;
+            }
+
+            &__slider_img {
+                padding-top: 50%;
+            }
+        }
+
+        main {
+
+            .about_us {
+
+                &__img {
+                    width: 130px;
+                }
+
+                &__text {
+                    width: 495px;
+                    font-size: 14px;
+                }
+            }
+
+            .special_offers {
+
+                &__container {
+                    max-width: 510px;
+                }
+
+                &__img {
+                    width: 90%;
+                    height: 240px;
+                }
+
+            }
+
+            .product {
+                &__items {
+                    max-width: 510px;
+                }
+            }
+
+            .service {
+                flex-direction: column;
+
+                &__item {
+                    width: 90%;
+                    margin-bottom: 65px;
+
+                    &:before {
+                        content: none;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .register {
+                background-position: inherit;
+            }
+
+            .sel_product {
+                flex-direction: column;
+                align-items: center;
+
+                &__image {
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                &__info {
+                    padding-left: 0;
+                    margin-top: 50px;
+                }
+            }
+
+            .training {
+                &__name {
+                    font-size: 4.5vw;
+                }
+            }
+
+            .cart_order {
+
+                .order {
+                    .customer, .recipient {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        
+                        &__item {
+                            flex-direction: column;
+    
+                            p {
+                                margin-bottom: 5px;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        .footer {
+
+            .footer_container {
+                flex-direction: column-reverse;
+
+                &__box {
+                    &--margin {
+                        margin-top: 30px;
+                    }
+                }
+            }
+
+            &__bottom {
+                flex-direction: column-reverse;
+            }
+
+            &__list {
+                margin-bottom: 10px;
+            }
+
+        }
+
+    }
+
+    @media only screen and (max-width: 576px) {
+
+        .header {
+            &__top {
+                h1 {
+                    font-size: 17px;
+                    height: 30px;
+                    margin: 10px auto;
+                    max-width: 280px;
+                }
+            }
+        }
+
+        main {
+
+            .about_us {
+
+                &__img {
+                    width: 120px;
+                }
+
+                &__text {
+                    width: 310px;
+                    font-size: 13px;
+                }
+            }
+
+            .special_offers {
+
+                &__item {
+                    margin: 0 auto;
+                }
+
+            }
+
+            .product {
+                &__items {
+                    max-width: 300px;
+                }
+
+                &__title {
+                    font-size: 20px;
+                    text-align: center;
+                }
+            }
+
+            .register {
+                &__title {
+                    font-size: 17px;
+                }
+
+                form {
+                    width: 285px;
+                }
+            }
+
+            .cart_order {
+
+                .order {
+
+                    .recipient, .customer {
+
+                        &__info {
+                            font-size: 14px;
+                        }
+
+                        &__item {
+                            width: 140px;
+
+                            p {
+                                font-size: 12px;
+                            }
+
+                            input {
+                                width: 100%;
+                            }
+
+                            .state {
+                                width: 100%;
+
+                                &__wrapper {
+                                    width: 100%;
+                                }
+
+                                &__container {
+                                    width: 140px;
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+
+                .cart {
+                    &__list {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+    
+                    &__item {
+                        flex-direction: row;
+                        margin-bottom: 20px;
+    
+                        > span:nth-of-type(1) {
+                            margin-right: 20px;
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+
+            }
+
+            .training {
+                &__title {
+                    font-size: 14px;
+                }
+
+                &__text {
+                    font-size: 12px;
+                }
+            }
+
+        }
+
+    }
+
+    @media only screen and (max-width: 430px) {
+        main {
+
+            .flowers, .gift, .offer {
+            
+                .category {
+            
+                    &__item {
+                        margin-right: 15px;
+                        font-size: 13px;
+                    }
+                }
+
+            }
+
+            .delivery {
+
+                &__list {
+                    width: 150px;
+                }
+
+                &__citys {
+                    justify-content: space-around;
+                }
+
+                &__item {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+}
